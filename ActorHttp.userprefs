@@ -1,0 +1,36 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ActorHttp/Program.cs">
+    <Files>
+      <File FileName="ActorsTest/RuntimeTest.cs" Line="13" Column="13" />
+      <File FileName="ActorHttp/Properties/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="ActorHttp/Actors/Runtime.cs" Line="1" Column="1" />
+      <File FileName="ActorHttp/Program.cs" Line="1" Column="1" />
+      <File FileName="ActorHttp/Actors/ConsoleLogger.cs" Line="1" Column="1" />
+      <File FileName="ActorHttp/Actors/DefaultErrorHandler.cs" Line="1" Column="1" />
+      <File FileName="ActorHttp/Actors/IRuntime.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True">
+          <Node name="ActorsTest" expanded="True">
+            <Node name="ActorsTest" expanded="True">
+              <Node name="RuntimeTest" expanded="True">
+                <Node name="SendMessage_SameThread" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/stipan/Projects/ActorHttp/ActorHttp/HttpActors.cs" line="712" column="1" />
+      <Breakpoint file="/Users/stipan/Projects/ActorHttp/ActorHttp/HttpActors.cs" line="847" column="1" />
+      <Breakpoint file="/Users/stipan/Projects/ActorHttp/ActorHttp/HttpActors.cs" line="558" column="1" />
+      <Breakpoint file="/Users/stipan/Projects/ActorHttp/ActorHttp/HttpActors.cs" line="521" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
