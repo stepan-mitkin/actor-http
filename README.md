@@ -11,5 +11,5 @@ Actors are designed in the DRAKON-C# visual language.
 
 ## System requirements
 
-- Visual Studio 2013
-- DRAKON Editor 1.25
+- Visual Studio 2017
+- DRAKON Editor 1.31
