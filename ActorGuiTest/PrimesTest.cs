@@ -39,17 +39,17 @@ namespace ActorGuiTest
             Action<int, int, object, int> send = (actorId, code, payload, sender) =>
             {
                 result = (string)payload;
+                done = true;
             };
             A.CallTo(() => runtime.SendMessage(40, CallResult.Completed, A<string>.Ignored, 0))
                 .Invokes(send);
-            A.CallTo(() => runtime.RemoveActor(30)).Invokes(() => { done = true; });
 
             var prime = new GuiMachines.PrimeCalculator();
             prime.N = n;
             prime.Client = 40;
             while (!done)
             {
-                prime.OnMessage(runtime, 30, new Message(Codes.Pulse, 0, null, 0));
+                prime.OnMessage(Codes.Pulse, runtime, 30, new Message(Codes.Pulse, 0, null, 0));
             }
             int[] actual = ParseResult(result);
             CollectionAssert.AreEqual(expected, actual);

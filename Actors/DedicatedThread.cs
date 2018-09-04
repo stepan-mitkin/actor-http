@@ -117,7 +117,7 @@ namespace Actors
         {
             try
             {
-                _actor.OnMessage(_runtime, _actorId, message);
+                _actor.OnMessage(message.Code, _runtime, _actorId, message);
             }
             catch (Exception ex)
             {
@@ -135,7 +135,7 @@ namespace Actors
         {
             try
             {
-                _actor.CleanUp(_runtime, _actorId);
+                _actor.Shutdown();
             }
             catch (Exception ex)
             {

@@ -112,18 +112,18 @@ namespace ActorGui
                 return;
             }
 
-            _runtime.SendMessage(Logic, GuiMachines.Prime, n, 0);
+            _runtime.SendMessage(Logic, GuiConstants.Prime, n, 0);
         }
 
         private void StartIo()
         {
             string url = this._urlEdit.Text.Trim();
-            _runtime.SendMessage(Logic, GuiMachines.Download, url, 0);
+            _runtime.SendMessage(Logic, GuiConstants.Download, url, 0);
         }
 
         private void Cancel()
         {
-            _runtime.SendMessage(Logic, GuiMachines.Cancel, null, 0);
+            _runtime.SendMessage(Logic, Codes.Cancel, null, 0);
         }
 
         public void SwitchToWorking()

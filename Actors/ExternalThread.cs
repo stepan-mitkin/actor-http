@@ -72,7 +72,7 @@ namespace Actors
         {
             try
             {
-                actor.OnMessage(_runtime, actorId, message);
+                actor.OnMessage(message.Code, _runtime, actorId, message);
             }
             catch (Exception ex)
             {
@@ -103,17 +103,17 @@ namespace Actors
 
             Action toDo = () =>
             {
-                CleanUpActor(actorId, actor);
+                CleanUpActor(actor);
             };
 
             _dispatcher(toDo);
         }
 
-        private void CleanUpActor(int actorId, IActor actor)
+        private void CleanUpActor(IActor actor)
         {
             try
             {
-                actor.CleanUp(_runtime, actorId);
+                actor.Shutdown();
             }
             catch (Exception ex)
             {

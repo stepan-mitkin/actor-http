@@ -18,17 +18,18 @@ namespace ActorsTest
 			public AutoResetEvent FinishTest;
 
 			#region IActor implementation
-			public void OnMessage (IRuntime runtime, int myActorId, Message message)
+			public object OnMessage (int messageId, IRuntime runtime, int myActorId, Message message)
 			{
 				string thread = GetThread ();
 				string entry = String.Format("OnMessage {0} {1} {2} {3}", thread, myActorId, message.Code, message.Sender);
 				History.Add(entry);
 				SetEvent(FinishTest);
+                return null;
 			}
-			public void CleanUp (IRuntime runtime, int myActorId)
+			public void Shutdown()
 			{
 				string thread = GetThread ();
-				string entry = String.Format("CleanUp {0} {1}", thread, myActorId);
+				string entry = String.Format("CleanUp {0}", thread);
 				History.Add(entry);
                 SetEvent(FinishTest);
 			}
@@ -56,12 +57,13 @@ namespace ActorsTest
 		{
 			public int Target;
 			#region IActor implementation
-			public void OnMessage (IRuntime runtime, int myActorId, Message message)
+			public object OnMessage (int messageId, IRuntime runtime, int myActorId, Message message)
 			{
 				runtime.SendMessage (Target, message.Code, message.Payload, myActorId);
+                return null;
 			}
 
-			public void CleanUp (IRuntime runtime, int myActorId)
+			public void Shutdown ()
 			{
 			}
 			#endregion
@@ -106,7 +108,7 @@ namespace ActorsTest
 			_finishTest.WaitOne ();
 
 			CollectionAssert.AreEquivalent (
-				new string[] { "OnMessage T1 1 20 4000", "CleanUp T1 1" },
+				new string[] { "OnMessage T1 1 20 4000", "CleanUp T1" },
 				_history
 			);
 		}
@@ -155,7 +157,7 @@ namespace ActorsTest
 			_finishTest.WaitOne ();
 
 			CollectionAssert.AreEquivalent (
-				new string[] { "CleanUp T2 1" },
+				new string[] { "CleanUp T2" },
 				_history
 			);
 		}
@@ -168,7 +170,7 @@ namespace ActorsTest
 			public AutoResetEvent Finished;
 			public int Target;
 			#region IActor implementation
-			public void OnMessage (IRuntime runtime, int myActorId, Message message)
+			public object OnMessage (int messageId, IRuntime runtime, int myActorId, Message message)
 			{
 				switch (message.Code) {
 				case CallResult.Completed:
@@ -193,8 +195,9 @@ namespace ActorsTest
 				default:
 					break;
 				}
+                return null;
 			}
-			public void CleanUp (IRuntime runtime, int myActorId)
+			public void Shutdown()
 			{
 
 			}
@@ -204,7 +207,7 @@ namespace ActorsTest
 		class Callee : IActor
 		{
 			public int Result;
-			public void OnMessage (IRuntime runtime, int myActorId, Message message)
+			public object OnMessage (int messageType, IRuntime runtime, int myActorId, Message message)
 			{
 				switch (Result) {
 				case CallResult.Completed:
@@ -221,8 +224,9 @@ namespace ActorsTest
 				default:
 					break;
 				}
+                return null;
 			}
-			public void CleanUp (IRuntime runtime, int myActorId)
+			public void Shutdown ()
 			{
 
 			}

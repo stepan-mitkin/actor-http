@@ -50,6 +50,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GuiConstants.cs" />
     <Compile Include="GuiMachines.cs" />
     <Compile Include="IMainWindow.cs" />
     <Compile Include="MainWindow.cs" />

@@ -188,7 +188,7 @@ namespace Actors
         {
             try
             {
-                parcel.Actor.OnMessage(_runtime, parcel.ActorId, parcel.Message);
+                parcel.Actor.OnMessage(parcel.Message.Code, _runtime, parcel.ActorId, parcel.Message);
             }
             catch (Exception ex)
             {
@@ -206,7 +206,7 @@ namespace Actors
         {
             try
             {
-                parcel.Actor.CleanUp(_runtime, parcel.ActorId);
+                parcel.Actor.Shutdown();
             }
             catch (Exception ex)
             {
@@ -234,7 +234,7 @@ namespace Actors
         {
             foreach (KeyValuePair<int, IActor> record in _actors)
             {
-                record.Value.CleanUp(_runtime, record.Key);
+                record.Value.Shutdown();
             }
         }
     }
