@@ -143,7 +143,7 @@ namespace ActorGui
 
         protected override void OnRender(DrawingContext context)
         {
-            SolidColorBrush fore = new SolidColorBrush(Colors.Black);
+            SolidColorBrush fore = new SolidColorBrush(Colors.Maroon);
 
             Cinematics state = Cinematics.Calculate(_angleRadians,
                 150, 130, 100,

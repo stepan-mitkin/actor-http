@@ -4,6 +4,6 @@
     <StartArguments>8080 C:\Users\1\Pictures\20140517</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>12345 C:\docs\drakon_editor\images</StartArguments>
+    <StartArguments>12345 C:\code\drakon_editor</StartArguments>
   </PropertyGroup>
 </Project>
